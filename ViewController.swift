@@ -17,6 +17,10 @@
 
 import UIKit
 
+
+
+
+
 class ViewController: UIViewController {
 
     
@@ -30,7 +34,7 @@ class ViewController: UIViewController {
         var userOne: PFObject = PFObject(className: "User")
         userOne["email"]            = "email@1.com"
         userOne["parent_name"]      = "brenda"
-        userOne["child_name"]       = "greta"
+        userOne["child_name"]       = "doug"
         userOne["team_name"]        = "Buffs"
         userOne["sport"]            = "lacrosse"
         userOne["location_city"]    = "Boulder"
@@ -52,7 +56,42 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBOutlet weak var logInEmailTextField: UITextField!
+    
+    @IBOutlet weak var logInPasswordTextField: UITextField!
+    
+    //println(logInEmailTextField.text)
+    //println(logInPasswordTextField.text)
+    
 
+    
+    @IBAction func logInSubmitClicked(sender: UIButton)
+    {
+        
+        let mynameInput = logInEmailTextField.text
+        let passwordInput = logInPasswordTextField.text
+        	PFUser.logInWithUsernameInBackground(mynameInput, password: passwordInput) //log in views
+        {
+            (user: PFUser!, error: NSError!) -> Void in
+            if user != nil {
+                //println(user["phone_number"])
+                //println(user["first_name"])
+                let home = self.storyboard?.instantiateViewControllerWithIdentifier("home") as homeScreenViewController
+                self.navigationController?.pushViewController(home, animated: true)
+            } else {
+                // The login failed. Check error to see why.
+            }
+        }
+//make it so keyboard disapears after use
+        self.logInPasswordTextField.resignFirstResponder()
+
+    }
+    //click out of text field --> keyboard disapoears
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
 
 }
 
