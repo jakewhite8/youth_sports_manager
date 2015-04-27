@@ -24,6 +24,7 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    @IBOutlet weak var incorrectLogginText: UILabel!
     
     
     override func viewDidLoad()
@@ -76,12 +77,20 @@ class ViewController: UIViewController {
         {
             (user: PFUser!, error: NSError!) -> Void in
             if user != nil {
-                //println(user["phone_number"])
-                //println(user["first_name"])
+                
+                var user = PFUser.currentUser()
+                
+                println("logged in")
+                
                 let home = self.storyboard?.instantiateViewControllerWithIdentifier("home") as homeScreenViewController
                 self.navigationController?.pushViewController(home, animated: true)
+
             } else {
                 // The login failed. Check error to see why.
+                self.incorrectLogginText.text = "invaid login information"
+                self.incorrectLogginText.textColor = UIColor.redColor()
+                
+                
             }
         }
 //make it so keyboard disapears after use
