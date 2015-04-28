@@ -9,6 +9,8 @@
 import UIKit
 
 class confirmationViewController: UIViewController {
+    
+    var currentObject : PFObject?
 
     @IBOutlet weak var createrObjectIdLabel: UILabel!
 
@@ -20,14 +22,46 @@ class confirmationViewController: UIViewController {
     {
         super.viewDidLoad()
         
+//        team = currentObejct{
+            
+        }
+        
         var user = PFUser.currentUser()
         
-        var string = String(user.objectId as NSString)
+        var string: String = user.objectId
         
-        var string2 = String(user["teams"] as NSString)
         
-        self.teamNameLabel.text = string2
-            self.createrObjectIdLabel.text  = string
-    }
+        var query = PFQuery(className:"Team")
+        query.whereKey("created", equalTo:string)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                println("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects as? [PFObject] {
+                    for object in objects {
+                        println(object.objectId)
+                    }
+                }
+            } else {
+                // Log details of the failure
+                println("Error: \(error!) \(error!.userInfo!)")
+            }
+        }
+        }
+
+        
+
     
+    func printShit()
+    {
+        self.teamNameLabel.text = "hello"
+        self.createrObjectIdLabel.text = "there"
+    }
 }
+    
+    
+    
+

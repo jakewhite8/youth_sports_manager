@@ -21,6 +21,9 @@ class createTeamViewController: UIViewController
     
     var user = PFUser.currentUser()
     
+    team = currentObject()
+    
+    
 //    override func viewDidLoad()
 //    {
 //        super.viewDidLoad()
@@ -57,10 +60,10 @@ class createTeamViewController: UIViewController
             
             team.setObject(self.teamName.text, forKey: "name")
             team.setObject(self.entryPassword.text, forKey: "password")
-            team.setObject(PFUser.currentUser(), forKey: "creater") //manager
+            team.setObject(PFUser.currentUser(), forKey: "manager") //manager
             team.setObject(self.sport.text, forKey: "sport")
             team.addObject(PFUser.currentUser(), forKey: "members")
-
+            
             
             //        //save new team
             //
@@ -83,12 +86,15 @@ class createTeamViewController: UIViewController
                     println("creating team \(self.teamName.text) did not work")
                 }
                 
-                println(self.team.objectId)
-            self.user.addObject(self.team.objectId, forKey: "teams")
+                println("team id: \(self.team.objectId)")
+
+
+                self.user.addObject(self.team.objectId, forKey: "teams")
+                
             }
             
             //        var result = team.save()
-            
+
             
             
             
