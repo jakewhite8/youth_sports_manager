@@ -20,11 +20,9 @@ class logInViewController: UIViewController
     
     @IBOutlet weak var emailTextField: UITextField!
 
+    @IBOutlet weak var errorMessageLabel: UILabel!
 
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    
-    @IBOutlet weak var nameTextField: UITextField! //username
     
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
@@ -52,10 +50,16 @@ class logInViewController: UIViewController
         
 
 
-        user.email = emailTextField.text
+//        user.email = emailTextField.text
+//        user.password = passwordTextField.text
+//        user.username = nameTextField.text
+
+        user.username = emailTextField.text
         user.password = passwordTextField.text
-        user.username = nameTextField.text
-            
+//        user.username = nameTextField.text
+        
+        
+        
             
         // other fields can be set just like with PFObject
         user["phone_number"] = phoneNumberTextField.text
@@ -68,18 +72,25 @@ class logInViewController: UIViewController
             (succeeded: Bool!, error: NSError!) -> Void in
             if error == nil {
                 
+                // if no errors signing up log in and go to home screen
+                self.user = PFUser.currentUser()
                 
-                PFUser.logInWithUsernameInBackground(self.nameTextField.text, password: self.passwordTextField.text)
+                PFUser.logInWithUsernameInBackground(self.emailTextField.text, password: self.passwordTextField.text)
                     {(user: PFUser!, error: NSError?)-> Void in
                         if user != nil
                         {
+                            self.user = PFUser.currentUser()
                             println("successful login")
                             let home = self.storyboard?.instantiateViewControllerWithIdentifier("home") as homeScreenViewController
                             self.navigationController?.pushViewController(home, animated: true)
                         }
                         else
                         {
+                            
                             println("login failed")
+                            self.errorMessageLabel.text = "Email address already active"
+                            self.errorMessageLabel.textColor = UIColor.redColor()
+                            
                         }
                 }
                 
@@ -93,12 +104,14 @@ class logInViewController: UIViewController
                 // Show the errorString somewhere and let the user try again.
                 println("Something bad has happened")
                 //check to see if user name or email has already been taken
+                self.errorMessageLabel.text = "Email address already active"
+                self.errorMessageLabel.textColor = UIColor.redColor()
             }
 
 
         }
         
-        self.user = PFUser.currentUser()
+//        self.user = PFUser.currentUser()
         
 
         

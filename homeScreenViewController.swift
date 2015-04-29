@@ -11,10 +11,6 @@ import UIKit
 class homeScreenViewController: UIViewController {
     
     
-
-    
-
-
     @IBOutlet weak var firstNameLabel: UILabel!
     
 
@@ -24,9 +20,8 @@ class homeScreenViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+    
         
-//        var x = isAuthenticated()
-//        if (x = 1)
         
         var user = PFUser.currentUser()
         

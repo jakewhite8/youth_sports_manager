@@ -78,7 +78,7 @@ class ViewController: UIViewController {
             (user: PFUser!, error: NSError!) -> Void in
             if user != nil {
                 
-                var user = PFUser.currentUser()
+                
                 
                 println("logged in")
                 

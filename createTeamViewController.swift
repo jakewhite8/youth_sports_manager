@@ -21,27 +21,23 @@ class createTeamViewController: UIViewController
     
     var user = PFUser.currentUser()
     
-    team = currentObject()
     
-    
-//    override func viewDidLoad()
-//    {
-//        super.viewDidLoad()
-//        
-//        var query:PFQuery = PFQuery(className: "Team")
-//        
-//        query.getObjectInBackgroundWithId("NK4nUa3EA3")
-//            {
-//                (team: PFObject!, error: NSError!) -> Void in
-//                if error == nil && team != nil {
-//                    println(team.objectId)
-//                } else {
-//                    println(error)
-//                }
-//        }
-//    }
-    
+    override func viewDidLoad()
+    {
 
+    }
+    
+    //in a storyboard-base application you will often want to do a little prepartation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //get the new view controller using [segue destinationViewcontroller]
+        var detailScene = segue.destinationViewController as confirmationViewController
+        
+        
+        
+        detailScene.currentObject = team
+        
+    }
     
     @IBAction func submitClicked(sender: AnyObject)
         {
@@ -62,8 +58,9 @@ class createTeamViewController: UIViewController
             team.setObject(self.entryPassword.text, forKey: "password")
             team.setObject(PFUser.currentUser(), forKey: "manager") //manager
             team.setObject(self.sport.text, forKey: "sport")
-            team.addObject(PFUser.currentUser(), forKey: "members")
-            
+            team.addObject(user.objectId, forKey: "members")
+            //user.setObject(team.objectId, forKey: "teams_joined") //add to list of teams user is a part of
+            user.addObject(["again_shall_we", "how about it"], forKey: "teams")
             
             //        //save new team
             //
@@ -78,7 +75,9 @@ class createTeamViewController: UIViewController
             team.saveInBackgroundWithBlock{
                 (success: Bool!, error: NSError!) -> Void in
                 if (success != nil) {
-                    
+//                    var id = self.team.objectId
+//                    print(id)
+//                    self.user.setObject(id, forKey: "teams_on")
                     println("team \(self.teamName.text) created")
                     
                     
@@ -89,7 +88,7 @@ class createTeamViewController: UIViewController
                 println("team id: \(self.team.objectId)")
 
 
-                self.user.addObject(self.team.objectId, forKey: "teams")
+
                 
             }
             
