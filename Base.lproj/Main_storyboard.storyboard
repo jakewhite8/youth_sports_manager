@@ -115,7 +115,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3e4-gl-u04" kind="push" id="6Rf-u4-MEN"/>
+                                    <segue destination="at9-HG-TCB" kind="push" id="7l7-X7-vaG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wUm-8C-Mr3">
@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNj-BF-35a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1822" y="1349"/>
+            <point key="canvasLocation" x="1838" y="1289"/>
         </scene>
         <!--Settings-->
         <scene sceneID="otU-DA-A6Y">
@@ -184,6 +184,9 @@
                                 <state key="normal" title="Leave Team">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Sji-lQ-8es" kind="push" id="wAc-Tc-4e1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -194,49 +197,111 @@
             </objects>
             <point key="canvasLocation" x="1940" y="2065"/>
         </scene>
-        <!--Root View Controller-->
+        <!--My Teams-->
         <scene sceneID="Lg0-Kp-9fd">
             <objects>
-                <tableViewController id="at9-HG-TCB" customClass="teamPageViewController" customModule="Youth_Sports_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="teams" id="at9-HG-TCB" customClass="teamPageViewController" customModule="Youth_Sports_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="109" sectionHeaderHeight="22" sectionFooterHeight="22" id="eff-so-reF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Bgg-YW-gYj" detailTextLabel="9yn-8j-HZL" rowHeight="109" style="IBUITableViewCellStyleSubtitle" id="tqB-Ib-Bzx" customClass="PFTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="109" id="tqB-Ib-Bzx" customClass="PFTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tqB-Ib-Bzx" id="zOj-ET-Snb">
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bgg-YW-gYj">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9yn-8j-HZL">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="at9-HG-TCB" id="J84-Di-6ZF"/>
-                            <outlet property="delegate" destination="at9-HG-TCB" id="9Uq-ty-jYL"/>
-                        </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="9a6-a6-Mun"/>
+                    <navigationItem key="navigationItem" title="My Teams" id="9a6-a6-Mun"/>
                     <connections>
+                        <outlet property="tableView" destination="eff-so-reF" id="AZR-ZX-mnL"/>
                         <segue destination="17A-Lo-p39" kind="push" id="9FN-g8-UIy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n52-0j-rIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631" y="3455"/>
+            <point key="canvasLocation" x="1724" y="3429"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="ZWH-Zv-hNC">
+            <objects>
+                <viewController id="uSP-3o-ypA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dKV-EO-kgG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="hFk-VX-UmK">
+                                <rect key="frame" x="64" y="97" width="219" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="WK8-Et-0tD">
+                                <rect key="frame" x="188" y="178" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="vd4-xn-JRr">
+                                <rect key="frame" x="46" y="248" width="123" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="GW8-Sh-jvr">
+                                <rect key="frame" x="21" y="60" width="222" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="l0w-c9-MMx">
+                                <rect key="frame" x="143" y="327" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stepper>
+                            <pickerView contentMode="scaleToFill" id="lAz-LS-uTk">
+                                <rect key="frame" x="-21" y="350" width="320" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Fci-Xd-ybR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h8v-si-Q4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2027" y="4330"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="lMH-iu-vim">
+            <objects>
+                <viewController id="JaG-g7-O68" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VkP-AH-XQf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="xqq-Kx-Mfd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SLq-ty-2Z7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2027" y="3700"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="AQG-6e-8SV">
+            <objects>
+                <tabBarController id="6HW-bu-ffN" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="BcI-Mf-HKX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="JaG-g7-O68" kind="relationship" relationship="viewControllers" id="jwB-No-BE8"/>
+                        <segue destination="uSP-3o-ypA" kind="relationship" relationship="viewControllers" id="gLc-vs-W2n"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LO1-Hm-E9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1487" y="4015"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XmD-Gs-qWd">
@@ -251,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZF-po-kw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="3867"/>
+            <point key="canvasLocation" x="2246" y="3455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cH5-W0-Hsr">
@@ -455,7 +520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lup-fj-mYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2257" y="1354"/>
+            <point key="canvasLocation" x="2803" y="1178"/>
         </scene>
         <!--Buffs Team Page-->
         <scene sceneID="PAr-aO-Ueo">
@@ -506,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5A-Nt-eny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2748" y="1340"/>
+            <point key="canvasLocation" x="3184" y="1178"/>
         </scene>
         <!--Manage Team-->
         <scene sceneID="u3Y-eX-sog">
@@ -537,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eQ-M9-9AO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3215" y="1333"/>
+            <point key="canvasLocation" x="3585" y="1271"/>
         </scene>
         <!--Confirmation-->
         <scene sceneID="9iZ-8O-23c">
@@ -829,7 +894,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pRa-Vd-jhg"/>
+        <segue reference="7l7-X7-vaG"/>
         <segue reference="olz-6V-qVF"/>
+        <segue reference="wAc-Tc-4e1"/>
+        <segue reference="pRa-Vd-jhg"/>
     </inferredMetricsTieBreakers>
 </document>

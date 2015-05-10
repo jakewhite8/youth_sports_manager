@@ -42,17 +42,7 @@ class createTeamViewController: UIViewController
     @IBAction func submitClicked(sender: AnyObject)
         {
             
-            //let team = PFInstallation.currentInstallation()
-            
-            //        let team:PFObject = PFObject(className: "Team")
-            
-            //        func addUniqueObject("password", "Team"){}
-            //
-            //        team["name"] = teamName.text
-            //        team["password"] = entryPassword.text
-            //        team["sport"] = sport.text
-            //        team["creater"] = PFUser.currentUser()
-            //
+
             
             team.setObject(self.teamName.text, forKey: "name")
             team.setObject(self.entryPassword.text, forKey: "password")

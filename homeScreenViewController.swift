@@ -16,6 +16,7 @@ class homeScreenViewController: UIViewController {
 
     
 //    func isAuthenticated() -> Bool
+    let next_user:PFObject = PFObject(className: "User")
     
     override func viewDidLoad()
     {
@@ -40,6 +41,8 @@ class homeScreenViewController: UIViewController {
         
         
     }
+    
+
 //    
 //    var user = PFUser.currentUser()
 //    
@@ -58,6 +61,7 @@ class homeScreenViewController: UIViewController {
 //        }
 //    }
     
+ 
 
     @IBAction func logOutClicked(sender: AnyObject)
     {
